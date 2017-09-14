@@ -39,10 +39,12 @@ $header-background-end-gradient-color: #02111d;
     }//end:.title
 
     .options{
-        // border: 1px solid white;
-        width: 50px;
+        // border: 1px solid white;        
         overflow: hidden;
         align-self: flex-end;
+        img{
+            display: inline-block;
+        }
     }//end:.options
 
 } //end:eis-header-section

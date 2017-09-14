@@ -1,4 +1,4 @@
-$lighter-grey-background: #EEEBEB;
+$lighter-grey-background: #FDFDFD;
 $active-background-color: #20678A;
 .homeComponent {
   display: flex;
@@ -33,6 +33,11 @@ $active-background-color: #20678A;
               background-color: $active-background-color;
               color: white;
           }
+      }
+  }//end:ul.pager
+  .dashboard-table{
+      tbody{
+          text-align: left;
       }
   }
 } //end:.homeComponent

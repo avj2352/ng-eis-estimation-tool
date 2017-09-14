@@ -1,15 +1,80 @@
 <div class="homeComponent container">
   <eis-header-component></eis-header-component>
   <div class="home-main-section">
-    <h4 [textContent]='title'></h4>
+    <h4 [textContent]="title"></h4>
     <div class="col-lg-12">
-      <div class="col-lg-3 col-lg-offset-9">
-            <ul class="pager">
-                    <li class="active"><a href="#">BallPark</a></li>
-                    <li class="disabled"><a href="#">Budgetory</a></li>
-                    <li class="disabled"><a href="#">Detailed</a></li>
-                  </ul>      
+      <div class="col-lg-1 col-lg-offset-11">
+            <button class="btn btn-primary">Add New</button>
       </div>
+    </div>
+    <div class="col-lg-12">
+        <!-- <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table> -->
+        <table class="dashboard-table table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Project Name</th>
+                <th>Type</th>
+                <th>Initiated By</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Cost</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Oncology Informatics</td>
+                <td>EPS</td>
+                <td>Nipun Garg</td>
+                <td>01/08/2017</td>
+                <td>240</td>
+                <td>EUR 8500</td>
+                <td>Edit | Download | Delete</td>                
+              </tr>
+              <tr>
+                  <td>2</td>
+                  <td>TeleHealth Phase 2</td>
+                  <td>TSS</td>
+                  <td>Chandrasekar</td>
+                  <td>01/07/2017</td>
+                  <td>600</td>
+                  <td>EUR 13500</td>
+                  <td>Edit | Download | Delete</td>
+              </tr>
+              <tr>
+                  <td>3</td>
+                  <td>HIAT</td>
+                  <td>TSS</td>
+                  <td>Sivaraman</td>
+                  <td>01/02/2017</td>
+                  <td>400</td>
+                  <td>EUR 7500</td>
+                  <td>Edit | Download | Delete</td>
+              </tr>
+              <tr>
+                  <td>4</td>
+                  <td>MHM</td>
+                  <td>TSS</td>
+                  <td>Subashini</td>
+                  <td>01/02/2017</td>
+                  <td>400</td>
+                  <td>EUR 7500</td>
+                  <td>Edit | Download | Delete</td>
+              </tr>
+              <tr>
+                  <td>5</td>
+                  <td>Tasy</td>
+                  <td>TSS</td>
+                  <td>Subashini</td>
+                  <td>01/02/2017</td>
+                  <td>400</td>
+                  <td>EUR 7500</td>
+                  <td>Edit | Download | Delete</td>
+              </tr>              
+            </tbody>
+          </table> 
     </div>
   </div>
   <!-- end:home-main-section -->
