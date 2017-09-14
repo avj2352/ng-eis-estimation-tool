@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+//Custom components
+import {HeaderComponent} from '../../components/header/header.component';
 
 @Component({
     selector:'eis-home-component',
@@ -8,6 +10,6 @@ import {Component} from '@angular/core';
 export class HomeComponent{
     title:String;
     constructor(){
-        this.title = 'EIS Estimation Tool';
+        this.title = 'Dashboard';
     }//end:constructor
 }//end:class-HomeComponent

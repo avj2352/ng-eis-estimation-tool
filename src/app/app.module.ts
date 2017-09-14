@@ -3,25 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+//3rd party imports
 import {UIRouterModule} from '@uirouter/angular';
-import { AppComponent } from './app.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 //Route definitions
-import {homeState,aboutState} from './app.router';
+import {loginState,homeState,aboutState,errorState} from './app.router';
 //Component definition
+import { AppComponent } from './app.component';
 import {HomeComponent} from './pages/home/home.component';
 import {AboutComponent} from './pages/about/about.component';
+import {LoginComponent } from './pages/login/login.component';
+import {ErrorComponent } from './pages/error/error.component';
+import {HeaderComponent} from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ErrorComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    UIRouterModule.forRoot({states:[homeState,aboutState],useHash:true})
+    Ng2SmartTableModule,
+    UIRouterModule.forRoot({states:[loginState,homeState,aboutState,errorState],useHash:true})
   ],
   providers: [],
   bootstrap: [AppComponent]

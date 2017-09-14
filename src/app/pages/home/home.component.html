@@ -1,4 +1,17 @@
-<div class="homeComponent">
-    <h1 [textContent]='title'></h1>
-    <p>This is the Homepage</p>
+<div class="homeComponent container">
+  <eis-header-component></eis-header-component>
+  <div class="home-main-section">
+    <h4 [textContent]='title'></h4>
+    <div class="col-lg-12">
+      <div class="col-lg-3 col-lg-offset-9">
+            <ul class="pager">
+                    <li class="active"><a href="#">BallPark</a></li>
+                    <li class="disabled"><a href="#">Budgetory</a></li>
+                    <li class="disabled"><a href="#">Detailed</a></li>
+                  </ul>      
+      </div>
+    </div>
+  </div>
+  <!-- end:home-main-section -->
 </div>
+<!-- end:homeComponent -->
