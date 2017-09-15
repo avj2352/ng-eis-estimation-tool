@@ -9,12 +9,14 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 //Route definitions
 import {loginState,homeState,aboutState,errorState} from './app.router';
 //Component definition
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './components/header/header.component';
 import {HomeComponent} from './pages/home/home.component';
 import {AboutComponent} from './pages/about/about.component';
-import {LoginComponent } from './pages/login/login.component';
-import {ErrorComponent } from './pages/error/error.component';
-import {HeaderComponent} from './components/header/header.component';
+import {LoginComponent} from './pages/login/login.component';
+import {ErrorComponent} from './pages/error/error.component';
+import {BallparkComponent} from './pages/home/ballpark/ballpark.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {HeaderComponent} from './components/header/header.component';
     HomeComponent,
     AboutComponent,
     ErrorComponent,
-    HeaderComponent
+    HeaderComponent,
+    BallparkComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
