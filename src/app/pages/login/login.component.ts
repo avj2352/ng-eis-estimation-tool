@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UIRouterModule ,UIROUTER_DIRECTIVES, StateService} from '@uirouter/angular';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() {
+  state:StateService;
 
+  constructor() {
+    // this.state = new StateService();
   }//end:constructor
+
+  onSubmit() { 
+    console.log('Form Submitted');
+    this.state.go('home');
+  };//end:onSubmit
 
   ngOnInit() {
   }//end:ngOnInit

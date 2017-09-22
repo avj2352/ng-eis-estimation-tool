@@ -1,0 +1,14 @@
+[
+    {
+        "/api/dev":{
+            "target":"http://INGBTCPIC5DTR98:8080/EISPortalTest/api/",
+            "secure":false
+        }
+    },
+    {
+        "/api/prod":{
+            "target":"http://INGBTCPIC5DTR98:8080/EISPortal/api/",
+            "secure":false
+        }
+    }   
+]
