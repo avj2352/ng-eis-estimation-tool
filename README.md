@@ -1,5 +1,97 @@
 # EIS Estimation Tool
 
+# Angular 4 Form Validation
+
+- Template-driven Forms
+- Model-driven Forms
+
+For Template driven forms approach, You need to have the following:
+
+- `app.module.ts`
+```ts
+import { FormsModule } from '@angular/forms'; // Include the FormsModule
+
+@NgModule({
+  declarations: [    
+    HeaderComponent,
+    BallparkComponent,
+    SideBarComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+---
+
+- `login.component.ts`
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { UIRouterModule ,UIROUTER_DIRECTIVES, StateService } from '@uirouter/angular';
+
+import { ApplicationLevelData } from './../../data/dao/application-level-data';
+import { LoginService } from './../../services/login/login.service';
+import { LoginUserAction } from './../../store/actions/actions';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  constructor(
+    private state:StateService,
+    private store:Store<ApplicationLevelData>,
+  ) {
+    // this.state = new StateService();
+  }//end:constructor
+
+  onSubmit(loginForm) { 
+    console.log('Form Submitted', loginForm);
+    this.store.dispatch(new LoginUserAction({username:loginForm.username,password:loginForm.password}));
+    this.state.go('home');
+  };//end:onSubmit
+
+  ngOnInit() {
+  }//end:ngOnInit
+
+}//end:class-LoginComponent
+```
+---
+
+- `login.component.html`
+
+```html
+<div class="login-page">
+  <img src="./assets/img/philips-shield-logo.png" width="100px" height="auto"/>
+  <h1><strong>Philips</strong> EIS Estimation Tool</h1>
+  <!-- You need to create a variable using # called loginForm and assign it ngForm -->
+  <!-- create an event binder - (ngSubmit) and call the custom function, passiwing it loginForm.value -->
+  <form #loginForm="ngForm" class="login-form" (ngSubmit)="onSubmit(loginForm.value)">
+    <!-- ngModel by default will create the same variable name as the input name property -->
+    <input name="username" type="text" placeholder="username@philips.com" ngModel/>
+    <!-- ngModel by default will create the same variable name as the input name property -->
+    <input name="password" type="password" ngModel/>
+    <!-- for ngSubmit to work, input type should be submit -->
+    <input class="btn btn-primary" type="submit"/>
+    <p><a>Forgot Password ?</a></p>
+  </form>
+</div>  
+```
+---
+
+# Model Driven Form Validation using Angular 2
+
 # Recap
 
 - Discussed need for the UI.
