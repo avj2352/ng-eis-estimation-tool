@@ -1,28 +1,60 @@
-# NgEisEstimationTool
+# EIS Estimation Tool
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.6.
+# Recap
 
-## Development server
+- Discussed need for the UI.
+- Had come up with Wireframe of the Tool.
+- Reviewed the same in the previous meeting.
+- Had discussions with Subashini and Parveen again on the planning of the Estimation.
+- Some of the requirements were not aligned / clear.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Re-planning
 
-## Code scaffolding
+- Had discussions with Subashini, Praveen (Estimation Template)
+- There can only by:
+    - `Ball park Estimate`
+    - `Detailed Estimate`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+- Ball Park estimate - Require the need for `Epics, Features, Stories`
+- Require a way to manage the following w.r.t each project:
+    - Configure / Manage Epics (weightage / storypoints)
+    - Configure / Manage Features (weightage / storypoints)
+    - Configure / Manage Stories (weightage / storypoints)
+- Require a way to change conifgurables.  
 
-## Build
+# MileStone Plan (Current and Planned Approach)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Ease of use for the user 
+- Type of Project, 
+- Simple set of questions (SDC Development Questionnaire).
 
-## Running unit tests
+## Ease of flow between the Screens
+- Access / Authentication `(align with EIS SD Portal)`
+- Type of Project `(new)`
+- Project Details `(new)`
+- Configuration
+- Requirement Mapping
+- Deliverables
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features
+- Single Sign on
+- Ability Download the `Epics, Features, Stories (in word/excel format)`
+- Persist data on `EIS SD server`.
 
-## Running end-to-end tests
+# Current Status Summary of the activity
+- EIS Estimation Tool design initiated `(Currently working on integrating it with EIS SD)`.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+# End Q3 Objective of the activity
+- Integration with EIS SD.
+- Prototype application
 
-## Further help
+# End Q4 Objective of the activity
+- Working of EIS Estimation Tool.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Inputs received
+- EIS Solution Delivery Estimation
+- Project -> Opportunities
+- Epics > Features > Stories > Tasks
+- Export as Template / Excel
+- Ability to Clone / Copy Opportunities
+- Unified theme
