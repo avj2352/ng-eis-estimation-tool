@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
     // this.state = new StateService();
   }//end:constructor
 
-  onSubmit() { 
-    console.log('Form Submitted');
-    this.store.dispatch(new LoginUserAction({username:'pramod.jingade@philips.com',password:'Welcome@123'}))
+  onSubmit(loginForm) { 
+    console.log('Form Submitted', loginForm);
+    this.store.dispatch(new LoginUserAction({username:loginForm.username,password:loginForm.password}));
     this.state.go('home');
   };//end:onSubmit
 
