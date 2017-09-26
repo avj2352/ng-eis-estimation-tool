@@ -1,0 +1,35 @@
+$lighter-grey-background: #FDFDFD;
+$active-background-color: #20678A;
+
+.home-main-section {      
+  position: absolute;
+  left: 17%;
+  flex-grow: 2;  
+  // border: 1px solid green;
+  background-color: $lighter-grey-background;  
+  border-radius: 5px;
+  // top: 20%;
+  margin: 0 auto;
+  width: 80%;
+  height: 85vh; //Box Shadow
+  -webkit-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.35);
+  h4 {
+    position: relative;
+    font-weight: bold;
+  }
+  ul.pager {
+    li.active {
+      a {
+        background-color: $active-background-color;
+        color: white;
+      }
+    }
+  } //end:ul.pager
+  .dashboard-table {
+    tbody {
+      text-align: left;
+    }
+  }
+} //end:.home-main-section

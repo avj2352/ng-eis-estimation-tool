@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 //Custom components
 import {HeaderComponent} from '../../components/header/header.component';
+import {SideBarComponent} from '../../components/side-bar/side-bar.component';
+import {BallparkComponent} from './ballpark/ballpark.component';
 
 @Component({
     selector:'eis-home-component',
