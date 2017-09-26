@@ -21,6 +21,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { BallparkComponent } from './pages/home/ballpark/ballpark.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { LoginService } from './services/login/login.service';
+import { LoginUserEffectService } from './store/effects/login-user-effect.service';
 
 // Initial Store values
 import {INITIAL_APPLICATION_STATE} from './store/application-state';
@@ -45,7 +46,7 @@ import * as reducerFunctions from './store/reducers/store-reducer';
     Ng2SmartTableModule,    
     UIRouterModule.forRoot({states:[loginState,homeState,aboutState,errorState],useHash:true}),
     StoreModule.provideStore(reducerFunctions.storeReducer,INITIAL_APPLICATION_STATE),
-    EffectsModule.run(LoginService),
+    EffectsModule.run(LoginUserEffectService),
     StoreDevtoolsModule.instrumentOnlyWithExtension()
   ],
   providers: [
