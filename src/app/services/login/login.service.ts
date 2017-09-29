@@ -19,6 +19,9 @@ export class LoginService {
       .map(res => {
         debugger;
         return res.json()
+      })
+      .catch((error)=>{
+        return Observable.of(error);
       });
   }//end:loginUser
 

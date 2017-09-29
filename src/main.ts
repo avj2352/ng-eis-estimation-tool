@@ -9,6 +9,9 @@ import { environment } from './environments/environment';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/concatMap';
+import 'rxjs/add/operator/concat';
 
 //CUSTOM OBSERVABLE DEBUGGER
 //Custom debugging feature for RxJS library. we need to add type definition

@@ -2,7 +2,8 @@ import { LoginModel } from './../data/model/login-model';
 
 
 export interface StoreData{
-    login:LoginModel;    
+    login:LoginModel;
+    errorResponse:string;
 }//end:StoreData
 
 // A Great place to define the initial state of the interface is right next to it
@@ -14,5 +15,6 @@ export const INITIAL_STORE_DATA:StoreData = {
         email:'',
         userId:0,
         sessionId:''
-    }
+    },
+    errorResponse:''    
 };//end:INITIAL_STORE_DATA
