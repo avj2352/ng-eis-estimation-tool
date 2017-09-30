@@ -1,5 +1,5 @@
-import { LoginModel } from './../model/login-model';
+import { LoginResponseModel } from './../model/login-model';
 
 export interface ApplicationLevelData{
-    login: LoginModel;    
+    login: LoginResponseModel;    
 }//end:ApplicationLevelData

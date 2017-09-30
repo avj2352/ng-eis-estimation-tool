@@ -3,43 +3,59 @@ import {Actions} from '@ngrx/effects';
 import * as _ from 'lodash';
 //Custom components
 import {ApplicationState} from './../application-state';
-import {LOGIN_USER_ACTION,USER_LOGGEDIN_ACTION,LoginUserAction,UserLoggedInAction} from './../actions/actions';
+import { LoginRequestAction, LoginResponseAction, LOGIN_REQUEST_ACTION, LOGIN_RESPONSE_ACTION} from './../actions/actions';
 
 //Our first reducer function
 export function storeReducer(state:ApplicationState, action:Action):ApplicationState{
-    switch(action.type){                    
-        case USER_LOGGEDIN_ACTION:
-            return handleUserLoggedInAction(state,<any>action);             
+    switch(action.type){
+        case LOGIN_REQUEST_ACTION:
+            return handleLoginRequestAction(state,<any>action);
+        case LOGIN_RESPONSE_ACTION:
+            return handleLoginResponseAction(state,<any>action);        
         default:
             return state;
     }
 }//end:storeReducer
 
 //inbuilt function
-function handleLoginUserAction(state:ApplicationState, action:LoginUserAction):ApplicationState{
+function handleLoginRequestAction(state:ApplicationState, action:LoginRequestAction):ApplicationState{
     const email = action.payload.username;
     const password = action.payload.password;
     // const currentUserId = state.uiState.currentThreadId;
     //Create a clone using Typescript
     const newState:ApplicationState = Object.assign({},state);
+    newState.loginRequest.username = action.payload.username;
+    newState.loginRequest.password = action.payload.password;
     return newState;
-}
+}//end:handleLoginRequestAction
 
 //inbuilt function
-function handleUserLoggedInAction(state:ApplicationState, action:UserLoggedInAction):ApplicationState{
-    const loginData = action.payload;
+function handleLoginResponseAction(state:ApplicationState, action:LoginResponseAction):ApplicationState{    
     // const currentUserId = state.uiState.currentThreadId;
+    const loginData = action.payload;
     //Create a clone using Typescript
     const newState:ApplicationState = Object.assign({},state);
-    //Just an awesome one liner for using lodash to create a map.
-    newState.storeData = {
-        login:{
+    //Just an awesome one liner for using lodash to create a map.    
+    if(action.payload.sessionId){
+        newState.storeData.login = {            
             firstName:loginData.firstName,
             lastName:loginData.lastName,
             email:loginData.email,
             userId:loginData.userId,
-            sessionId:loginData.sessionId
+            sessionId:loginData.sessionId,
+            status:200,
+            response:'SUCCESS'
         }
-    };    
+    }else{
+        newState.storeData.login = {            
+            firstName:'',
+            lastName:'',
+            email:'',
+            userId:0,
+            sessionId:'',            
+            status:action.payload.status,
+            response:'INVALID USERNAME / PASSWORD'
+        };
+    }//end:if
     return newState;
-}//end:handleLoadUserThreadsAction
+}//end:handleLoginResponseAction
