@@ -5,7 +5,7 @@ import { UIRouterModule ,UIROUTER_DIRECTIVES, StateService } from '@uirouter/ang
 
 import { ApplicationLevelData } from './../../data/dao/application-level-data';
 import { LoginService } from './../../services/login/login.service';
-import { LoginUserAction } from './../../store/actions/actions';
+import { LoginRequestAction } from './../../store/actions/actions';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +21,16 @@ export class LoginComponent implements OnInit {
     // this.state = new StateService();
   }//end:constructor
 
+  ngOnInit() {
+    this.store.subscribe((storeValue)=>{
+      console.log('Store values are: ', storeValue);
+    });//end:subscribe
+  }//end:ngOnInit
+
   onSubmit(loginForm) { 
     console.log('Form Submitted', loginForm);
-    this.store.dispatch(new LoginUserAction({username:loginForm.username,password:loginForm.password}));
+    this.store.dispatch(new LoginRequestAction({username:loginForm.username,password:loginForm.password}));
     this.state.go('home');
   };//end:onSubmit
-
-  ngOnInit() {
-  }//end:ngOnInit
 
 }//end:class-LoginComponent
