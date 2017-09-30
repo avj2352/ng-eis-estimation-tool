@@ -30,7 +30,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     //It is preferrable to use ngOnInit for unit-testing
     this.loginForm = new FormGroup({
-      username: new FormControl('username@philips.com',Validators.compose([Validators.email, Validators.required])),
+      username: new FormControl('username@philips.com',Validators.compose([
+        Validators.email,
+        Validators.required,
+        // Validators.pattern('[\\w\\-\\s\\/]+')
+      ])),
       password: new FormControl('test', Validators.required)
     });
     this.store.subscribe((storeValue)=>{      
