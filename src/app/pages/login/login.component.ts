@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+//Forms
+import { FormGroup, FormControl, Validators, } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { UIRouterModule ,UIROUTER_DIRECTIVES, StateService } from '@uirouter/angular';
 
-import { ApplicationLevelData } from './../../data/dao/application-level-data';
+//Custom Components
+import { ApplicationState } from './../../store/application-state';
 import { LoginService } from './../../services/login/login.service';
 import { LoginRequestAction } from './../../store/actions/actions';
 
@@ -13,24 +16,40 @@ import { LoginRequestAction } from './../../store/actions/actions';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  //Form Validation
+  loginForm:FormGroup;
+  private loginResponseErrorMsg:string;
 
-  constructor(
+  constructor(    
     private state:StateService,
-    private store:Store<ApplicationLevelData>,
+    private store:Store<ApplicationState>,
   ) {
-    // this.state = new StateService();
+    this.loginResponseErrorMsg = '';
   }//end:constructor
 
   ngOnInit() {
-    this.store.subscribe((storeValue)=>{
-      console.log('Store values are: ', storeValue);
+    //It is preferrable to use ngOnInit for unit-testing
+    this.loginForm = new FormGroup({
+      username: new FormControl('username@philips.com',Validators.compose([Validators.email, Validators.required])),
+      password: new FormControl('test', Validators.required)
+    });
+    this.store.subscribe((storeValue)=>{      
+      if(storeValue.hasOwnProperty('storeData')){
+        if(storeValue.storeData.login.status==200){
+          this.state.go('home');
+        }else{
+          this.loginResponseErrorMsg = storeValue.storeData.login.response;
+        }
+      }//end:storeValue.storeData
+      console.log('Store value is: ', storeValue);
     });//end:subscribe
+
+
   }//end:ngOnInit
 
   onSubmit(loginForm) { 
     console.log('Form Submitted', loginForm);
-    this.store.dispatch(new LoginRequestAction({username:loginForm.username,password:loginForm.password}));
-    this.state.go('home');
+    this.store.dispatch(new LoginRequestAction({username:loginForm.username,password:loginForm.password}));    
   };//end:onSubmit
 
 }//end:class-LoginComponent

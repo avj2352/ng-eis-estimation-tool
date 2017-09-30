@@ -36,14 +36,14 @@ function handleLoginResponseAction(state:ApplicationState, action:LoginResponseA
     //Create a clone using Typescript
     const newState:ApplicationState = Object.assign({},state);
     //Just an awesome one liner for using lodash to create a map.    
-    if(action.payload.status == 200){
+    if(action.payload.sessionId){
         newState.storeData.login = {            
             firstName:loginData.firstName,
             lastName:loginData.lastName,
             email:loginData.email,
             userId:loginData.userId,
             sessionId:loginData.sessionId,
-            status:loginData.status,
+            status:200,
             response:'SUCCESS'
         }
     }else{

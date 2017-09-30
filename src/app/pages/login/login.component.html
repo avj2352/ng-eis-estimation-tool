@@ -1,10 +1,11 @@
 <div class="login-page">
   <img src="./assets/img/philips-shield-logo.png" width="100px" height="auto"/>
   <h1><strong>Philips</strong> EIS Estimation Tool</h1>
-  <form #loginForm="ngForm" class="login-form" (ngSubmit)="onSubmit(loginForm.value)">
-    <input name="username" type="text" placeholder="username@philips.com" ngModel/>
-    <input name="password" type="password" ngModel/>
-    <input class="btn btn-primary" type="submit"/>
+  <form [formGroup] ="loginForm" class="login-form" (ngSubmit)="onSubmit(loginForm.value)">
+    <p>{{ loginResponseErrorMsg }}</p>
+    <input name="username" type="text" placeholder="username@philips.com" formControlName="username"/>
+    <input name="password" type="password" formControlName="password"/>
+    <input class="btn btn-primary" type="submit" [disabled]="!loginForm.valid"/>
     <p><a>Forgot Password ?</a></p>
   </form>
   <footer>

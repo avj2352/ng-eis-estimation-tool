@@ -1,7 +1,7 @@
 //Core
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -41,7 +41,7 @@ import * as reducerFunctions from './store/reducers/store-reducer';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     Ng2SmartTableModule,    
     UIRouterModule.forRoot({states:[loginState,homeState,aboutState,errorState],useHash:true}),
